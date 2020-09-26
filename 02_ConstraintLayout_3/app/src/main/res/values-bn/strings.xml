@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="name_input_text">আপনার নাম লিখুন</string>
+    <string name="name_in_english_language">ইংরেজিতে নাম লিখুন</string>
+    <string name="submit_button_text">Submit</string>
+</resources>
