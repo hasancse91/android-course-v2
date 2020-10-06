@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SharedPreference Singletone Pattern</string>
+    <string name="country_button_text">Show Country name</string>
+    <string name="capital_button_text">Show Capital Name</string>
+</resources>
