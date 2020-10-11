@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Material Card ListView Runtime Permission</string>
+    <string name="phone_call_button_text">Call Me</string>
+</resources>
