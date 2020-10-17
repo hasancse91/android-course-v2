@@ -1,5 +1,6 @@
 package com.hellohasan.retrofitgetrequest.feature.home.model
 
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class Food (
@@ -11,5 +12,5 @@ data class Food (
     val imageUrl: String,
     val rating: Float,
     val description: String,
-    val restaurantName: String
+    @SerializedName("restaurantName") val restaurant: String
 ): Serializable
