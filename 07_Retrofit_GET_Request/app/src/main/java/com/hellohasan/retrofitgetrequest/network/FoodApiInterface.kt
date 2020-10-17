@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface FoodApiInterface {
 
-    @GET("food.json")
+    @GET("hasancse91/android-course-v2/master/07_Retrofit_GET_Request/data/food.json")
     fun getFoodDetails(): Call<Food>
 }
