@@ -8,12 +8,12 @@ import retrofit2.Response
 
 class HomeModelImpl: HomeModel {
 
-    private val apiInterface = RetrofitClient.client?.create(FoodApiInterface::class.java)
-    private val call = apiInterface?.getFoodDetails()
+    private val apiInterface = RetrofitClient.getClient().create(FoodApiInterface::class.java)
+    private val call = apiInterface.getFoodDetails()
 
     override fun getFoodDetails(foodCallback: FoodCallback) {
 
-        call?.enqueue(object : Callback<Food> {
+        call.enqueue(object : Callback<Food> {
 
             override fun onResponse(call: Call<Food>, response: Response<Food>) {
                 response.body()?.let {
