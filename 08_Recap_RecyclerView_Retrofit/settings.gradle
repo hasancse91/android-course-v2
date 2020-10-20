@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "08_Recap_of_RecyclerView_Retrofit"

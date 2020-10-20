@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Retrofit GET Request</string>
+    <string name="title_homepage">FoodHub - GET Request</string>
+    <string name="price_label">Price</string>
+    <string name="price_format">%d TK</string>
+    <string name="title_food_list">Food List</string>
+</resources>
