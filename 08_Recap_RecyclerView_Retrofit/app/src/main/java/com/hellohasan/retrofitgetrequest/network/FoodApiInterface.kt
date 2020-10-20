@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface FoodApiInterface {
 
-    @GET("shakircam/CollegeList/master/app/src/main/java/com/example/collegelist/foodList")
+    @GET("hasancse91/android-course-v2/master/08_Recap_RecyclerView_Retrofit/data/foodlist.json")
     fun getFoodList(): Call<MutableList<Food>>
 
     @GET("hasancse91/android-course-v2/master/07_Retrofit_GET_Request/data/food.json")
