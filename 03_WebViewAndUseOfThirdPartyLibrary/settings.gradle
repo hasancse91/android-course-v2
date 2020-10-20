@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "03_WebViewAndUseOfThirdPartyLibrary"
+rootProject.name = "03_WebView_And_Third_Party_Library"

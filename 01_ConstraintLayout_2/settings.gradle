@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "01.2 Constraint Layout"
+rootProject.name = "01_ConstraintLayout_2"

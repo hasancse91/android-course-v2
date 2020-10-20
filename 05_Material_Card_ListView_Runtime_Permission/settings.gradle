@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Material Card ListView Runtime Permission"
+rootProject.name = "05_Material_Card_ListView_Runtime_Permission"
