@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Retrofit GET Request"
+rootProject.name = "07_Retrofit_GET_Request"
