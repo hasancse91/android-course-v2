@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">09_Android_MVP_Architecture</string>
+    <string name="title_food_details_page">Food Details</string>
+    <string name="price_label">Price</string>
+    <string name="price_format">%d TK</string>
+    <string name="title_food_list">Food List</string>
+</resources>
