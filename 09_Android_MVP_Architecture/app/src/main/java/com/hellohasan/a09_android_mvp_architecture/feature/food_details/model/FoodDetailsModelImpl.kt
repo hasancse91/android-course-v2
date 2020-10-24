@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeModelImpl: HomeModel {
+class FoodDetailsModelImpl: FoodDetailsModel {
 
     private val apiInterface = RetrofitClient.getClient().create(FoodApiInterface::class.java)
     private val call = apiInterface.getFoodDetails()

@@ -1,0 +1,138 @@
+[
+    {
+        "id": 101,
+        "name": "Pizza Italizano",
+        "price": 279,
+        "discount": 10,
+        "isFavorite": true,
+        "imageUrl": "https://static.toiimg.com/photo/53110049.cms",
+        "rating": 4.8,
+        "description": "Lorem ipsum lorem lorem do to loream loolf foo",
+        "restaurantName": "Mom's Kitchen",
+        "restaurantZone": "Mirpur",
+        "ingredients": [
+            "Chicken",
+            "Mashroom",
+            "Cheese"
+        ]
+    },
+    {
+        "id": 101,
+        "name": "Pizza Italizano",
+        "price": 279,
+        "discount": 10,
+        "isFavorite": true,
+        "imageUrl": "https://static.toiimg.com/photo/53110049.cms",
+        "rating": 4.8,
+        "description": "Lorem ipsum lorem lorem do to loream loolf foo",
+        "restaurantName": "Mom's Kitchen",
+        "restaurantZone": "Mirpur",
+        "ingredients": [
+            "Chicken",
+            "Mashroom",
+            "Cheese"
+        ]
+    },
+    {
+        "id": 101,
+        "name": "Pizza Italizano",
+        "price": 279,
+        "discount": 10,
+        "isFavorite": true,
+        "imageUrl": "https://static.toiimg.com/photo/53110049.cms",
+        "rating": 4.8,
+        "description": "Lorem ipsum lorem lorem do to loream loolf foo",
+        "restaurantName": "Mom's Kitchen",
+        "restaurantZone": "Mirpur",
+        "ingredients": [
+            "Chicken",
+            "Mashroom",
+            "Cheese"
+        ]
+    },
+    {
+        "id": 101,
+        "name": "Pizza Italizano",
+        "price": 279,
+        "discount": 10,
+        "isFavorite": true,
+        "imageUrl": "https://static.toiimg.com/photo/53110049.cms",
+        "rating": 4.8,
+        "description": "Lorem ipsum lorem lorem do to loream loolf foo",
+        "restaurantName": "Mom's Kitchen",
+        "restaurantZone": "Mirpur",
+        "ingredients": [
+            "Chicken",
+            "Mashroom",
+            "Cheese"
+        ]
+    },
+    {
+        "id": 101,
+        "name": "Pizza Italizano",
+        "price": 279,
+        "discount": 10,
+        "isFavorite": true,
+        "imageUrl": "https://static.toiimg.com/photo/53110049.cms",
+        "rating": 4.8,
+        "description": "Lorem ipsum lorem lorem do to loream loolf foo",
+        "restaurantName": "Mom's Kitchen",
+        "restaurantZone": "Mirpur",
+        "ingredients": [
+            "Chicken",
+            "Mashroom",
+            "Cheese"
+        ]
+    },
+    {
+        "id": 101,
+        "name": "Pizza Italizano",
+        "price": 279,
+        "discount": 10,
+        "isFavorite": true,
+        "imageUrl": "https://static.toiimg.com/photo/53110049.cms",
+        "rating": 4.8,
+        "description": "Lorem ipsum lorem lorem do to loream loolf foo",
+        "restaurantName": "Mom's Kitchen",
+        "restaurantZone": "Mirpur",
+        "ingredients": [
+            "Chicken",
+            "Mashroom",
+            "Cheese"
+        ]
+    },
+    {
+        "id": 101,
+        "name": "Pizza Italizano",
+        "price": 279,
+        "discount": 10,
+        "isFavorite": true,
+        "imageUrl": "https://static.toiimg.com/photo/53110049.cms",
+        "rating": 4.8,
+        "description": "Lorem ipsum lorem lorem do to loream loolf foo",
+        "restaurantName": "Mom's Kitchen",
+        "restaurantZone": "Mirpur",
+        "ingredients": [
+            "Chicken",
+            "Mashroom",
+            "Cheese"
+        ]
+    },
+    {
+        "id": 101,
+        "name": "Pizza Italizano",
+        "price": 279,
+        "discount": 10,
+        "isFavorite": true,
+        "imageUrl": "https://static.toiimg.com/photo/53110049.cms",
+        "rating": 4.8,
+        "description": "Lorem ipsum lorem lorem do to loream loolf foo",
+        "restaurantName": "Mom's Kitchen",
+        "restaurantZone": "Mirpur",
+        "ingredients": [
+            "Chicken",
+            "Mashroom",
+            "Cheese"
+        ]
+    }
+]

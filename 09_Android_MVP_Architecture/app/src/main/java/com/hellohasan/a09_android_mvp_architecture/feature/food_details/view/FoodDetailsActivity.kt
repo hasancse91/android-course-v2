@@ -8,57 +8,50 @@ import com.hellohasan.a09_android_mvp_architecture.R
 
 import com.hellohasan.a09_android_mvp_architecture.core.BaseActivity
 import com.hellohasan.a09_android_mvp_architecture.feature.food_details.model.Food
-import com.hellohasan.a09_android_mvp_architecture.feature.food_details.model.FoodCallback
-import com.hellohasan.a09_android_mvp_architecture.feature.food_details.model.HomeModel
-import com.hellohasan.a09_android_mvp_architecture.feature.food_details.model.HomeModelImpl
+import com.hellohasan.a09_android_mvp_architecture.feature.food_details.presenter.FoodDetailsPresenter
+import com.hellohasan.a09_android_mvp_architecture.feature.food_details.presenter.FoodDetailsPresenterImpl
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_food_details.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-class FoodDetailsActivity : BaseActivity() {
+class FoodDetailsActivity : BaseActivity(), FoodDetailsView {
 
     override fun setLayoutId(): Int = R.layout.activity_food_details
     override fun setToolbar(): Toolbar {
         toolbar.title = getString(R.string.title_food_details_page)
         return toolbar
     }
-
     override val isHomeUpButtonEnable: Boolean get() = true
+
+    private lateinit var presenter : FoodDetailsPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        showFoodDetails()
+        presenter = FoodDetailsPresenterImpl(this)
+
+        presenter.getFoodDetails()
     }
 
-    private fun showFoodDetails() {
+    override fun handleProgressBarVisibility(visibility: Int) {
+        progressBar.visibility = visibility
+    }
 
-        progressBar.visibility = View.VISIBLE
+    override fun onFoodDetailsFetchSuccess(food: Food) {
 
-        val homeModel: HomeModel = HomeModelImpl()
+        Glide.with(iv_food)
+            .load(food.imageUrl)
+            .into(iv_food)
+        tv_food_name.text = food.name
+        tv_price_value.text = getString(R.string.price_format, food.price)
+        tv_description.text = food.description
+    }
 
-        homeModel.getFoodDetails(object : FoodCallback {
+    override fun onFoodDetailsFetchFailure(errorMessage: String) {
 
-            override fun onSuccess(food: Food) {
-                progressBar.visibility = View.GONE
-                materialCardView.visibility = View.VISIBLE
+        showToast(errorMessage)
 
-                Glide.with(iv_food)
-                    .load(food.imageUrl)
-                    .into(iv_food)
-                tv_food_name.text = food.name
-                tv_price_value.text = getString(R.string.price_format, food.price)
-
-            }
-
-            override fun onError(errorMessage: Throwable) {
-                progressBar.visibility = View.GONE
-                materialCardView.visibility = View.GONE
-                showToast(errorMessage.localizedMessage)
-
-                Logger.e(errorMessage.localizedMessage)
-            }
-        })
+        Logger.e(errorMessage)
     }
 
 }
