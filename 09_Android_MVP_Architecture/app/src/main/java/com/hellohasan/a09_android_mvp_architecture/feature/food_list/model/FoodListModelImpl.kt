@@ -1,8 +1,9 @@
-package com.hellohasan.retrofitgetrequest.feature.food_list.model
+package com.hellohasan.a09_android_mvp_architecture.feature.food_list.model
 
 import com.hellohasan.a09_android_mvp_architecture.feature.food_details.model.Food
 import com.hellohasan.a09_android_mvp_architecture.network.FoodApiInterface
 import com.hellohasan.a09_android_mvp_architecture.network.RetrofitClient
+import com.hellohasan.retrofitgetrequest.feature.food_list.model.FoodListCallback
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

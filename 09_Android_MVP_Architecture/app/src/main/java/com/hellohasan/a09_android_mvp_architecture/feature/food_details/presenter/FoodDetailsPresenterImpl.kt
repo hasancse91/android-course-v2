@@ -9,22 +9,27 @@ import com.hellohasan.a09_android_mvp_architecture.feature.food_details.view.Foo
 class FoodDetailsPresenterImpl(private val view: FoodDetailsView): FoodDetailsPresenter {
 
     val model : FoodDetailsModel = FoodDetailsModelImpl()
+    val VISIBLE = 0 // View.VISIBLE = 0
+    val GONE = 8 // View.GONE = 8
 
     override fun getFoodDetails() {
 
-        model.getFoodDetails(object : FoodCallback{
+        view.handleProgressBarVisibility(VISIBLE)
+
+        model.getFoodDetails(object : FoodCallback {
 
             override fun onSuccess(food: Food) {
+                view.handleProgressBarVisibility(GONE)
                 view.onFoodDetailsFetchSuccess(food)
             }
 
             override fun onError(errorMessage: Throwable) {
+                view.handleProgressBarVisibility(VISIBLE)
                 if (errorMessage.localizedMessage != null)
                     view.onFoodDetailsFetchFailure(errorMessage.localizedMessage!!)
                 else
                     view.onFoodDetailsFetchFailure("Something went wrong!")
             }
-
         })
     }
 }

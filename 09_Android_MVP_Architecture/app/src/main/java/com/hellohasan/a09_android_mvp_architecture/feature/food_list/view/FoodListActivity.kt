@@ -10,48 +10,47 @@ import com.hellohasan.a09_android_mvp_architecture.core.BaseActivity
 import com.hellohasan.a09_android_mvp_architecture.feature.food_details.model.Food
 import com.hellohasan.a09_android_mvp_architecture.feature.food_details.view.FoodDetailsActivity
 import com.hellohasan.retrofitgetrequest.feature.food_list.model.FoodListCallback
-import com.hellohasan.retrofitgetrequest.feature.food_list.model.FoodListModel
-import com.hellohasan.retrofitgetrequest.feature.food_list.model.FoodListModelImpl
+import com.hellohasan.a09_android_mvp_architecture.feature.food_list.model.FoodListModel
+import com.hellohasan.a09_android_mvp_architecture.feature.food_list.model.FoodListModelImpl
+import com.hellohasan.a09_android_mvp_architecture.feature.food_list.presenter.FoodListPresenter
+import com.hellohasan.a09_android_mvp_architecture.feature.food_list.presenter.FoodListPresenterImpl
 import kotlinx.android.synthetic.main.activity_food_list.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-class FoodListActivity : BaseActivity() {
+class FoodListActivity : BaseActivity(), FoodListView {
 
     override fun setLayoutId(): Int {
         return R.layout.activity_food_list
     }
-
     override fun setToolbar(): Toolbar {
         toolbar.title = getString(R.string.title_food_list)
         return toolbar
     }
-
     override val isHomeUpButtonEnable: Boolean get() = false
+
+    private lateinit var presenter: FoodListPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        showFoodList()
+        presenter = FoodListPresenterImpl(this)
 
+        presenter.getFoodList()
     }
 
-    private fun showFoodList() {
-        progress.visibility = View.VISIBLE
-        val foodListModel: FoodListModel = FoodListModelImpl()
+    override fun handleProgressBarVisibility(isVisible: Boolean) {
+        if (isVisible)
+            progress.visibility = View.VISIBLE
+        else
+            progress.visibility = View.GONE
+    }
 
-        foodListModel.getFoodList(object : FoodListCallback {
+    override fun onFoodListFetchSuccess(foodList: MutableList<Food>) {
+        initFoodAdapter(foodList)
+    }
 
-            override fun onSuccess(foodList: MutableList<Food>) {
-                progress.visibility = View.GONE
-                initFoodAdapter(foodList)
-            }
-
-            override fun onError(throwable: Throwable) {
-                progress.visibility = View.GONE
-                showToast(throwable.localizedMessage)
-            }
-
-        })
+    override fun onFoodListFetchFailure(errorMessage: String) {
+        showToast(errorMessage)
     }
 
     private fun initFoodAdapter(foodList: MutableList<Food>) {
@@ -65,15 +64,6 @@ class FoodListActivity : BaseActivity() {
         })
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = adapter
-
-//        val funClass = FunClass()
-//        val adapter = FoodListAdapter(foodList, funClass)
     }
 
-//    class FunClass: ItemClickListener {
-//
-//        override fun onItemClicked(position: Int) {
-//
-//        }
-//    }
 }
