@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">10_Post_Request_Authentication_MVP_Architecture</string>
+    <string name="title_food_details_page">Food Details</string>
+    <string name="price_label">Price</string>
+    <string name="price_format">%d TK</string>
+    <string name="title_food_list">Food List</string>
+
+    <string name="api_key">VGhpcyBpcyBBUEkgS0VZIGluIGJhc2U2NCBmb3JtYXQ=</string>
+</resources>

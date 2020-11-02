@@ -1,0 +1,17 @@
+{
+    "id": 101,
+    "name": "Pizza Italizano",
+    "price": 279,
+    "discount": 10,
+    "isFavorite": true,
+    "imageUrl": "https://static.toiimg.com/photo/53110049.cms",
+    "rating": 4.8,
+    "description": "Pizza, dish of Italian origin consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, tomato, olives, mozzarella or other cheese, and many other ingredients, baked quickly—usually, in a commercial setting, using a wood-fired oven heated to a very high temperature—and served hot.",
+    "restaurantName": "Mom's Kitchen",
+    "restaurantZone": "Mirpur",
+    "ingredients": [
+        "Chicken",
+        "Mashroom",
+        "Cheese"
+    ]
+}
