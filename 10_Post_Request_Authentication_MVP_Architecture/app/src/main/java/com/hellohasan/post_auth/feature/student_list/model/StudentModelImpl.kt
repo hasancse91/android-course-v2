@@ -2,7 +2,7 @@ package com.hellohasan.post_auth.feature.student_list.model
 
 import android.content.Context
 import com.hellohasan.post_auth.R
-import com.hellohasan.post_auth.feature.login.model.ApiCallback
+import com.hellohasan.post_auth.core.DataFetchCallback
 import com.hellohasan.post_auth.network.ApiInterface
 import com.hellohasan.post_auth.network.RetrofitClient
 import retrofit2.Call
@@ -13,7 +13,7 @@ class StudentModelImpl (private val context: Context): StudentModel {
 
     private val apiInterface = RetrofitClient.getClient().create(ApiInterface::class.java)
 
-    override fun getStudentList(callback: ApiCallback<StudentResponse>) {
+    override fun getStudentList(callback: DataFetchCallback<StudentResponse>) {
 
         // token should be fetched from sharedPreference
         val call = apiInterface.getStudentList(context.getString(R.string.api_key), token)
@@ -35,7 +35,7 @@ class StudentModelImpl (private val context: Context): StudentModel {
         })
     }
 
-    override fun getStudentById(id: Int, callback: ApiCallback<StudentResponse>) {
+    override fun getStudentById(id: Int, callback: DataFetchCallback<StudentResponse>) {
 
         // apiKey can be fetched from string resource. token should be fetched from sharedPreference
         val call = apiInterface.getStudent(apiKey, token, id)
