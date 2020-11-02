@@ -1,6 +1,5 @@
 package com.hellohasan.post_auth.network
 
-import com.hellohasan.post_auth.feature.food_details.model.Food
 import com.hellohasan.post_auth.feature.login.model.LoginResponse
 import com.hellohasan.post_auth.feature.student_list.model.StudentResponse
 import com.hellohasan.post_auth.feature.login.model.UserCredential
