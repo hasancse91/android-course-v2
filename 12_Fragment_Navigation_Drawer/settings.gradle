@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "12_Fragment_Navigation_Drawer"

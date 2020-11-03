@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name = "10_Post_Request_Authentication_MVP_Architecture"
