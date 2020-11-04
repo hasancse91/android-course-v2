@@ -23,8 +23,13 @@ class StudentListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         button.setOnClickListener {
+
             val direction = StudentListFragmentDirections.navigateToStudentDetails(106)
             findNavController().navigate(direction)
+
+//            val direction = StudentListFragmentDirections.navigateToLogin()
+//            findNavController().navigate(direction)
+
         }
     }
 }

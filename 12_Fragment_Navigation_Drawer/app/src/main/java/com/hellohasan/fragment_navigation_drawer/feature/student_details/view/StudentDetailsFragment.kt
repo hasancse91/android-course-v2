@@ -25,7 +25,7 @@ class StudentDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val studentId = args
+        val studentId = args.studentId
 
         tv_student_id.text = "Show here details of Student ID:\n\n $studentId"
     }

@@ -22,7 +22,6 @@ class HomeFragment : Fragment(), HomeView {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -35,7 +34,7 @@ class HomeFragment : Fragment(), HomeView {
     }
 
     override fun setProgressBarVisibility(isVisible: Boolean) {
-        progress_bar.visibility = if(isVisible) View.VISIBLE else View.GONE
+        progress_bar?.visibility = if(isVisible) View.VISIBLE else View.GONE
     }
 
     override fun onDataFetchSuccess(data: CourseInfoResponse.Data) {

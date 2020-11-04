@@ -25,6 +25,9 @@
         <action
             android:id="@+id/navigate_to_student_details"
             app:destination="@id/nav_student_details" />
+<!--        <action-->
+<!--            android:id="@+id/navigate_to_login"-->
+<!--            app:destination="@id/nav_login" />-->
     </fragment>
 
     <fragment
