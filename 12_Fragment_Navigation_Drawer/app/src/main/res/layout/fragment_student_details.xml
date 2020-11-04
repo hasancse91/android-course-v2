@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.student_list.view.StudentListFragment">
+    tools:context=".feature.student_details.view.StudentDetailsFragment">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tv_student_id"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show Student Details Page"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Student details page\n198" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

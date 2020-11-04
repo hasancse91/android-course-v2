@@ -19,33 +19,28 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 class MainActivity : BaseActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+
     override fun setLayoutId(): Int {
         return R.layout.activity_main
     }
-
-    override fun setToolbar(): Toolbar {
-        return toolbar
-    }
-
-    override val isHomeUpButtonEnable: Boolean
-        get() = false
+    override fun setToolbar(): Toolbar { return toolbar }
+    override val isHomeUpButtonEnable: Boolean get() = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).show()
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home, R.id.nav_login, R.id.nav_student_list
-        ), drawerLayout)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.nav_home, R.id.nav_login, R.id.nav_student_list),
+            drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
