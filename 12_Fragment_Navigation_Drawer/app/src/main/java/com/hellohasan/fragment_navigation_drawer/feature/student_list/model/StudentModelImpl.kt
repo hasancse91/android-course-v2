@@ -1,10 +1,11 @@
 package com.hellohasan.post_auth.feature.student_list.model
 
 import android.content.Context
-import com.hellohasan.post_auth.R
-import com.hellohasan.post_auth.core.DataFetchCallback
-import com.hellohasan.post_auth.network.ApiInterface
-import com.hellohasan.post_auth.network.RetrofitClient
+import com.hellohasan.fragment_navigation_drawer.R
+import com.hellohasan.fragment_navigation_drawer.core.DataFetchCallback
+import com.hellohasan.fragment_navigation_drawer.feature.student_list.model.StudentModel
+import com.hellohasan.fragment_navigation_drawer.network.ApiInterface
+import com.hellohasan.fragment_navigation_drawer.network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,7 +17,7 @@ class StudentModelImpl (private val context: Context): StudentModel {
     override fun getStudentList(callback: DataFetchCallback<StudentResponse>) {
 
         // token should be fetched from sharedPreference
-        val call = apiInterface.getStudentList(context.getString(R.string.api_key), token)
+        val call = apiInterface.getStudentList(context.getString(R.string.api_key), "token")
 
         call.enqueue(object : Callback<StudentResponse> {
             override fun onResponse(
@@ -38,7 +39,7 @@ class StudentModelImpl (private val context: Context): StudentModel {
     override fun getStudentById(id: Int, callback: DataFetchCallback<StudentResponse>) {
 
         // apiKey can be fetched from string resource. token should be fetched from sharedPreference
-        val call = apiInterface.getStudent(apiKey, token, id)
+        val call = apiInterface.getStudent("apiKey", "token", id)
 
         call.enqueue(object: Callback<StudentResponse> {
             override fun onResponse(

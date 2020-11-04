@@ -22,20 +22,20 @@ abstract class BaseActivity: AppCompatActivity() {
         Logger.addLogAdapter(AndroidLogAdapter())
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                onBackPressed()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return when (item.itemId) {
+//            android.R.id.home -> {
+//                onBackPressed()
+//                true
+//            }
+//            else -> super.onOptionsItemSelected(item)
+//        }
+//    }
 
     private fun setActionBar(toolbar: Toolbar, isHomeUpButtonEnable: Boolean) {
         setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(isHomeUpButtonEnable)
-        supportActionBar?.setHomeButtonEnabled(isHomeUpButtonEnable)
+//        supportActionBar?.setDisplayHomeAsUpEnabled(isHomeUpButtonEnable)
+//        supportActionBar?.setHomeButtonEnabled(isHomeUpButtonEnable)
     }
 
     fun showToast(text: String) {

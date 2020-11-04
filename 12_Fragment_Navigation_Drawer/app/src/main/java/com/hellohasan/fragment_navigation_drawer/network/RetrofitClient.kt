@@ -10,7 +10,7 @@ object RetrofitClient {
 
     private val gson = GsonBuilder().setLenient().create()
 
-    private val retrofit = Retrofit.Builder()
+    val retrofit : Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
