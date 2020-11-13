@@ -35,9 +35,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        // Add a marker in parliament house and move the camera
+        val nationalParliamentOfBangladesh = LatLng(23.7626429, 90.3763693)
+        mMap.setMinZoomPreference(6.0f)
+        mMap.addMarker(MarkerOptions().position(nationalParliamentOfBangladesh).title("Marker in Parliament House"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(nationalParliamentOfBangladesh))
+
     }
 }

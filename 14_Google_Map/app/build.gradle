@@ -15,6 +15,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        resValue "string", "google_maps_key", getMapApi()
     }
 
     buildTypes {
@@ -40,7 +42,18 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+/**
+ * Read the API key from ./secure.properties into R.string.maps_api_key
+ */
+def getMapApi() {
+    def secureProps = new Properties()
+    if (file("../secure.properties").exists()) {
+        file("../secure.properties")?.withInputStream { secureProps.load(it) }
+    }
+    return secureProps.getProperty("MAPS_API_KEY") ?: ""
 }
