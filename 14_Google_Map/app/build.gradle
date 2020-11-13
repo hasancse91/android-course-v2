@@ -55,5 +55,12 @@ def getMapApi() {
     if (file("../secure.properties").exists()) {
         file("../secure.properties")?.withInputStream { secureProps.load(it) }
     }
-    return secureProps.getProperty("MAPS_API_KEY") ?: ""
+
+    String mapApiKey = secureProps.getProperty("MAPS_API_KEY")
+
+    if (mapApiKey != null) {
+        return mapApiKey
+    } else {
+        throw new GradleException("============================================================================================\nGoogle Map API Key is missing!\nPlease add 'MAPS_API_KEY' field at secure.properties file.\nFor more details: https://github.com/hasancse91/android-course-v2/blob/master/14_Google_Map/README.md\n============================================================================================")
+    }
 }
