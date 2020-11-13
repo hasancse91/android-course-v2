@@ -38,6 +38,11 @@ class FoodListActivity : BaseActivity(), FoodListView {
         presenter.getFoodList()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.detachView()
+    }
+
     override fun handleProgressBarVisibility(isVisible: Boolean) {
         if (isVisible)
             progress.visibility = View.VISIBLE

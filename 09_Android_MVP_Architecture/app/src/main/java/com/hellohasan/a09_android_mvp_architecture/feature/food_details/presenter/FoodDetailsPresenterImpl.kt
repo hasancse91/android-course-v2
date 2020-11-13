@@ -6,7 +6,7 @@ import com.hellohasan.a09_android_mvp_architecture.feature.food_details.model.Fo
 import com.hellohasan.a09_android_mvp_architecture.feature.food_details.model.FoodDetailsModelImpl
 import com.hellohasan.a09_android_mvp_architecture.feature.food_details.view.FoodDetailsView
 
-class FoodDetailsPresenterImpl(private val view: FoodDetailsView): FoodDetailsPresenter {
+class FoodDetailsPresenterImpl(private var view: FoodDetailsView?): FoodDetailsPresenter {
 
     val model : FoodDetailsModel = FoodDetailsModelImpl()
     val VISIBLE = 0 // View.VISIBLE = 0
@@ -14,22 +14,26 @@ class FoodDetailsPresenterImpl(private val view: FoodDetailsView): FoodDetailsPr
 
     override fun getFoodDetails() {
 
-        view.handleProgressBarVisibility(VISIBLE)
+        view?.handleProgressBarVisibility(VISIBLE)
 
         model.getFoodDetails(object : FoodCallback {
 
             override fun onSuccess(food: Food) {
-                view.handleProgressBarVisibility(GONE)
-                view.onFoodDetailsFetchSuccess(food)
+                view?.handleProgressBarVisibility(GONE)
+                view?.onFoodDetailsFetchSuccess(food)
             }
 
             override fun onError(errorMessage: Throwable) {
-                view.handleProgressBarVisibility(VISIBLE)
+                view?.handleProgressBarVisibility(VISIBLE)
                 if (errorMessage.localizedMessage != null)
-                    view.onFoodDetailsFetchFailure(errorMessage.localizedMessage!!)
+                    view?.onFoodDetailsFetchFailure(errorMessage.localizedMessage!!)
                 else
-                    view.onFoodDetailsFetchFailure("Something went wrong!")
+                    view?.onFoodDetailsFetchFailure("Something went wrong!")
             }
         })
+    }
+
+    override fun detachView() {
+        view = null
     }
 }
