@@ -14,6 +14,7 @@ class MainActivityModelImpl (private val context: Context) : MainActivityModel {
 
         if (!isLocationPermissionGranted(context.applicationContext)) {
             callback.onError(Throwable("Location permission is missing"))
+            return
         }
 
         LocationServices.getFusedLocationProviderClient(context)
