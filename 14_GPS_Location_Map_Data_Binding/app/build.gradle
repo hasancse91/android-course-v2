@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -32,6 +34,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {
@@ -45,6 +50,27 @@ dependencies {
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // material theme
+    implementation 'com.google.android.material:material:1.2.1'
+
+    // recyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    // image loading and caching
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //pretty logger library
+    implementation 'com.orhanobut:logger:2.2.0'
+
+    // networking library
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // location service
+    implementation "com.google.android.gms:play-services-location:17.1.0"
+    implementation 'com.google.android.libraries.places:places:2.4.0'
 }
 
 /**

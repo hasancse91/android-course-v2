@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "14_GPS_Location_Map_Data_Binding"

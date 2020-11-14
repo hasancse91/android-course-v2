@@ -1,4 +1,4 @@
-package com.hellohasan.google_map
+package com.hellohasan.google_map.feature.map_view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,18 +9,28 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.hellohasan.google_map.R
+import com.hellohasan.google_map.core.LATITUDE
+import com.hellohasan.google_map.core.LONGITUDE
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    private var latitude: Double = 0.0
+    private var longitude: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        val bundle = intent.extras
+        latitude = bundle?.getDouble(LATITUDE) ?: 0.0
+        longitude = bundle?.getDouble(LONGITUDE) ?: 0.0
     }
 
     /**
@@ -35,11 +45,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in parliament house and move the camera
-        val nationalParliamentOfBangladesh = LatLng(23.7626429, 90.3763693)
-        mMap.setMinZoomPreference(6.0f)
-        mMap.addMarker(MarkerOptions().position(nationalParliamentOfBangladesh).title("Marker in Parliament House"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(nationalParliamentOfBangladesh))
-
+        val locationLatLong = LatLng(latitude, longitude)
+        mMap.setMinZoomPreference(16.0f)
+        mMap.addMarker(MarkerOptions().position(locationLatLong).title("My current location"))
+        mMap.animateCamera(CameraUpdateFactory.newLatLng(locationLatLong))
     }
 }
