@@ -2,9 +2,9 @@ package com.hellohasan.mvvm_food_app.feature.food_list.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.hellohasan.mvvm_food_app.core.DataFetchCallback
 import com.hellohasan.mvvm_food_app.feature.food_details.model.Food
 import com.hellohasan.mvvm_food_app.feature.food_list.model.FoodListModel
-import com.hellohasan.retrofitgetrequest.feature.food_list.model.FoodListCallback
 
 class FoodListViewModel: ViewModel() {
 
@@ -15,11 +15,11 @@ class FoodListViewModel: ViewModel() {
     fun getFoodList(model: FoodListModel) {
         progressBarVisibility.postValue(true)
 
-        model.getFoodList(object : FoodListCallback{
+        model.getFoodList(object : DataFetchCallback<MutableList<Food>>{
 
-            override fun onSuccess(foodList: MutableList<Food>) {
+            override fun onSuccess(data: MutableList<Food>) {
                 progressBarVisibility.postValue(false)
-                foodListLiveData.postValue(foodList)
+                foodListLiveData.postValue(data)
             }
 
             override fun onError(throwable: Throwable) {

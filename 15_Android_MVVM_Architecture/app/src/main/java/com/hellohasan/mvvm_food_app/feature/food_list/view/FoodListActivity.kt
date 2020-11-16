@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hellohasan.mvvm_food_app.R
 import com.hellohasan.mvvm_food_app.core.BaseActivity
+import com.hellohasan.mvvm_food_app.core.ListItemClickListener
 import com.hellohasan.mvvm_food_app.feature.food_details.model.Food
 import com.hellohasan.mvvm_food_app.feature.food_details.view.FoodDetailsActivity
 import com.hellohasan.mvvm_food_app.feature.food_list.model.FoodListModel
@@ -53,7 +54,7 @@ class FoodListActivity : BaseActivity() {
 
     private fun initFoodAdapter(foodList: MutableList<Food>) {
 
-        val adapter = FoodListAdapter(foodList, object : ItemClickListener {
+        val adapter = FoodListAdapter(foodList, object : ListItemClickListener {
 
             override fun onItemClicked(position: Int) {
                 startActivity(Intent(this@FoodListActivity, FoodDetailsActivity::class.java))

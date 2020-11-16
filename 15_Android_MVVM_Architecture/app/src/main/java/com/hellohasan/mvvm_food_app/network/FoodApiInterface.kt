@@ -6,9 +6,9 @@ import retrofit2.http.GET
 
 interface FoodApiInterface {
 
-    @GET("hasancse91/android-course-v2/master/09_Android_MVP_Architecture/data/foodlist.json")
+    @GET("hasancse91/android-course-v2/master/15_Android_MVVM_Architecture/data/foodlist.json")
     fun getFoodList(): Call<MutableList<Food>>
 
-    @GET("hasancse91/android-course-v2/master/09_Android_MVP_Architecture/data/food.json")
+    @GET("hasancse91/android-course-v2/master/15_Android_MVVM_Architecture/data/food.json")
     fun getFoodDetails(): Call<Food>
 }
