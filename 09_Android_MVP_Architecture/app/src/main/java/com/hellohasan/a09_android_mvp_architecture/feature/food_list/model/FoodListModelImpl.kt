@@ -19,7 +19,10 @@ class FoodListModelImpl: FoodListModel {
 
             override fun onResponse(call: Call<MutableList<Food>>, response: Response<MutableList<Food>>) {
                 response.body()?.let {
-                    foodListCallback.onSuccess(it)
+                    if (response.code() == 200)
+                        foodListCallback.onSuccess(it)
+                    else if (response.code() in 401..499)
+                        foodListCallback.onError(Throwable("Unauthorized"))
                 }
             }
 

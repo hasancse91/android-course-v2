@@ -14,7 +14,6 @@ abstract class BaseActivity: AppCompatActivity() {
     abstract fun setToolbar(): Toolbar
     abstract val isHomeUpButtonEnable: Boolean
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(setLayoutId())
