@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hellohasan.a09_android_mvp_architecture.R
 import com.hellohasan.a09_android_mvp_architecture.core.BaseActivity
@@ -14,10 +16,19 @@ import com.hellohasan.a09_android_mvp_architecture.feature.food_list.model.FoodL
 import com.hellohasan.a09_android_mvp_architecture.feature.food_list.model.FoodListModelImpl
 import com.hellohasan.a09_android_mvp_architecture.feature.food_list.presenter.FoodListPresenter
 import com.hellohasan.a09_android_mvp_architecture.feature.food_list.presenter.FoodListPresenterImpl
+import com.hellohasan.a09_android_mvp_architecture.feature.food_list.viewmodel.FoodListViewModel
+import kotlinx.android.synthetic.main.activity_food_details.*
 import kotlinx.android.synthetic.main.activity_food_list.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-class FoodListActivity : BaseActivity(), FoodListView {
+class FoodListActivity : BaseActivity() {
+
+    private lateinit var viewModel: FoodListViewModel
+    private lateinit var model : FoodListModel
+
+    override fun getParentActivityIntent(): Intent? {
+        return super.getParentActivityIntent()
+    }
 
     override fun setLayoutId(): Int {
         return R.layout.activity_food_list
@@ -28,34 +39,25 @@ class FoodListActivity : BaseActivity(), FoodListView {
     }
     override val isHomeUpButtonEnable: Boolean get() = false
 
-    private lateinit var presenter: FoodListPresenter
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        presenter = FoodListPresenterImpl(this)
+        model = FoodListModelImpl()
+        viewModel = ViewModelProvider(this).get(FoodListViewModel::class.java)
 
-        presenter.getFoodList()
-    }
+        viewModel.getFoodList(model)
 
-    override fun onDestroy() {
-        super.onDestroy()
-        presenter.detachView()
-    }
+        viewModel.foodListLiveData.observe(this, {
+            initFoodAdapter(it)
+        })
 
-    override fun handleProgressBarVisibility(isVisible: Boolean) {
-        if (isVisible)
-            progress.visibility = View.VISIBLE
-        else
-            progress.visibility = View.GONE
-    }
+        viewModel.progressBarVisibility.observe(this, {
+            progressBar.visibility = if (it) View.VISIBLE else View.GONE
+        })
 
-    override fun onFoodListFetchSuccess(foodList: MutableList<Food>) {
-        initFoodAdapter(foodList)
-    }
-
-    override fun onFoodListFetchFailure(errorMessage: String) {
-        showToast(errorMessage)
+        viewModel.foodListErrorLiveData.observe(this, { errorMessage ->
+            showToast(errorMessage)
+        })
     }
 
     private fun initFoodAdapter(foodList: MutableList<Food>) {
@@ -70,5 +72,4 @@ class FoodListActivity : BaseActivity(), FoodListView {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = adapter
     }
-
 }
