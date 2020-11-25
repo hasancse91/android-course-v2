@@ -18,21 +18,10 @@ object DbHelper {
 
                 /**
                  * Here, we execute this SQL query:
-                 *
                  * CREATE TABLE student(_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, registration_no INTEGER NOT NULL UNIQUE, phone TEXT, email TEXT )
                  */
 
                 db?.execSQL("CREATE TABLE $TABLE_STUDENT($COLUMN_STUDENT_ID INTEGER PRIMARY KEY AUTOINCREMENT, $COLUMN_STUDENT_NAME TEXT NOT NULL, $COLUMN_STUDENT_REGISTRATION INTEGER NOT NULL UNIQUE, $COLUMN_STUDENT_PHONE TEXT, $COLUMN_STUDENT_EMAIL TEXT)")
-
-
-//                val CREATE_STUDENT_TABLE = ("CREATE TABLE " + TABLE_STUDENT + "("
-//                        + COLUMN_STUDENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-//                        + COLUMN_STUDENT_NAME + " TEXT NOT NULL, "
-//                        + COLUMN_STUDENT_REGISTRATION + " INTEGER NOT NULL UNIQUE, "
-//                        + COLUMN_STUDENT_PHONE + " TEXT, " //nullable
-//                        + COLUMN_STUDENT_EMAIL + " TEXT " + ")")
-//
-//                db?.execSQL(CREATE_STUDENT_TABLE)
             }
 
             override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -51,3 +40,12 @@ object DbHelper {
         return dbHelper
     }
 }
+
+//                val CREATE_STUDENT_TABLE = ("CREATE TABLE " + TABLE_STUDENT + "("
+//                        + COLUMN_STUDENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+//                        + COLUMN_STUDENT_NAME + " TEXT NOT NULL, "
+//                        + COLUMN_STUDENT_REGISTRATION + " INTEGER NOT NULL UNIQUE, "
+//                        + COLUMN_STUDENT_PHONE + " TEXT, " //nullable
+//                        + COLUMN_STUDENT_EMAIL + " TEXT " + ")")
+//
+//                db?.execSQL(CREATE_STUDENT_TABLE)
