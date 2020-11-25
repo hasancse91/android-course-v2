@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.food_details.view.FoodDetailsActivity">
+    tools:context=".ui.food_details.view.FoodDetailsActivity">
 
     <include
         android:id="@+id/toolbar_layout"

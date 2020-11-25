@@ -14,14 +14,16 @@
         android:theme="@style/Theme.09_Android_MVP_Architecture"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name="com.hellohasan.sqlite.feature.food_list.view.FoodListActivity">
+        <activity android:name=".ui.student_list.view.StudentListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hellohasan.sqlite.feature.food_details.view.FoodDetailsActivity" />
+
+        <activity android:name=".ui.food_list.view.FoodListActivity"/>
+        <activity android:name=".ui.food_details.view.FoodDetailsActivity" />
     </application>
 
 </manifest>

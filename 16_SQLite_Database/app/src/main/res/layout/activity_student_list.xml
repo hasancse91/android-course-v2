@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.food_list.view.FoodListActivity">
+    tools:context=".ui.student_list.view.StudentListActivity">
 
     <include
         android:id="@+id/toolbar_layout"
@@ -14,19 +14,17 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_layout"
-        tools:listitem="@layout/item_food" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/item_student"/>
 
-    <ProgressBar
-        android:id="@+id/progress"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar_layout"
-        app:layout_constraintStart_toStartOf="@+id/toolbar_layout"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_layout"
-        tools:visibility="visible" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_baseline_person_add_alt_1_24"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

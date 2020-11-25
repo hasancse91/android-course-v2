@@ -1,4 +1,4 @@
-package com.hellohasan.sqlite.network
+package com.hellohasan.sqlite.data.remote
 
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
