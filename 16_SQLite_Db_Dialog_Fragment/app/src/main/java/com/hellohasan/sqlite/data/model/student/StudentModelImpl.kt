@@ -78,7 +78,7 @@ class StudentModelImpl(private val context: Context) : StudentModel {
                 val studentList = mutableListOf<Student>()
 
                 do {
-                    val id = cursor.getInt(cursor.getColumnIndex(COLUMN_STUDENT_ID))
+                    val id = cursor.getInt(0) // the index of _id is 0
                     val name = cursor.getString(cursor.getColumnIndex(COLUMN_STUDENT_NAME))
                     val registrationNumber =
                         cursor.getLong(cursor.getColumnIndex(COLUMN_STUDENT_REGISTRATION))
