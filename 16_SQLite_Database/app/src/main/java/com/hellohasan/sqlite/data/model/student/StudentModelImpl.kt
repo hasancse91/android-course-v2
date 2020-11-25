@@ -3,6 +3,7 @@ package com.hellohasan.sqlite.data.model.student
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
+import android.database.SQLException
 import com.hellohasan.sqlite.core.DataFetchCallback
 import com.hellohasan.sqlite.data.db.DbHelper
 import com.hellohasan.sqlite.utils.*
