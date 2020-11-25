@@ -100,10 +100,41 @@ class StudentModelImpl(private val context: Context) : StudentModel {
         }
     }
 
-    override fun updateStudent(student: Student, callback: DataFetchCallback<Student>) {
-        TODO("Not yet implemented")
+    override fun updateStudent(student: Student, callback: DataFetchCallback<Int>) {
+        val dbHelper = DbHelper.getInstance(context)
+        val sqLiteDatabase = dbHelper.writableDatabase
+
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_STUDENT_NAME, student.name)
+        contentValues.put(COLUMN_STUDENT_REGISTRATION, student.registrationNumber)
+        contentValues.put(COLUMN_STUDENT_PHONE, student.phoneNumber)
+        contentValues.put(COLUMN_STUDENT_EMAIL, student.email)
+
+        try {
+            val rowCount = sqLiteDatabase.update(
+                TABLE_STUDENT,
+                contentValues,
+                "$COLUMN_STUDENT_ID = ? ",
+                arrayOf(student.id.toString())
+            )
+
+            if (rowCount > 0) {
+                callback.onSuccess(rowCount)
+            } else {
+                callback.onError(Throwable("No item is updated"))
+            }
+
+        } catch (e: Exception) {
+            callback.onError(e)
+            Logger.e(e.localizedMessage)
+        } finally {
+            sqLiteDatabase.close()
+        }
     }
 
+    /**
+     * If deletion process is success, then onSuccess() method will be triggered with `number of deleted row`
+     */
     override fun deleteStudent(id: Long, callback: DataFetchCallback<Int>) {
         val dbHelper = DbHelper.getInstance(context)
         val sqLiteDatabase = dbHelper.writableDatabase
