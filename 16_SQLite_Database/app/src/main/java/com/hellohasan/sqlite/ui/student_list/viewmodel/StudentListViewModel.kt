@@ -10,6 +10,8 @@ class StudentListViewModel(private val model: StudentModel): ViewModel() {
 
     val studentListLiveData = MutableLiveData<MutableList<Student>>()
     val studentListFailedLiveData = MutableLiveData<String>()
+    val studentDeletionSuccessLiveData = MutableLiveData<Int>()
+    val studentDeletionFailedLiveData = MutableLiveData<String>()
 
     fun getStudentList() {
 
@@ -21,6 +23,19 @@ class StudentListViewModel(private val model: StudentModel): ViewModel() {
 
             override fun onError(throwable: Throwable) {
                 studentListFailedLiveData.postValue(throwable.localizedMessage)
+            }
+        })
+    }
+
+    fun deleteStudentById(id: Long) {
+
+        model.deleteStudent(id, object : DataFetchCallback<Int> {
+            override fun onSuccess(data: Int) {
+                studentDeletionSuccessLiveData.postValue(data)
+            }
+
+            override fun onError(throwable: Throwable) {
+                studentDeletionFailedLiveData.postValue(throwable.localizedMessage)
             }
         })
     }

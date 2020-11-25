@@ -10,8 +10,6 @@ import com.orhanobut.logger.Logger
 
 class StudentModelImpl(private val context: Context) : StudentModel {
 
-
-
     override fun insertStudent(student: Student, callback: DataFetchCallback<Student>) {
         val dbHelper = DbHelper.getInstance(context)
         val sqLiteDatabase = dbHelper.writableDatabase
@@ -27,8 +25,7 @@ class StudentModelImpl(private val context: Context) : StudentModel {
             if (id > 0) {
                 student.id = id
                 callback.onSuccess(student)
-            }
-            else
+            } else
                 callback.onError(Throwable("Insertion failed for unknown reason"))
         } catch (e: Exception) {
             callback.onError(e)
@@ -63,16 +60,16 @@ class StudentModelImpl(private val context: Context) : StudentModel {
              * // If you want to execute raw query then uncomment this code block. And comment above cursor initialization.
              * // The output of both are same.
              *
-                val SELECT_QUERY = String.format(
-                    "SELECT %s, %s, %s, %s, %s FROM %s",
-                    COLUMN_STUDENT_ID,
-                    COLUMN_STUDENT_NAME,
-                    COLUMN_STUDENT_REGISTRATION,
-                    COLUMN_STUDENT_EMAIL,
-                    COLUMN_STUDENT_PHONE,
-                    TABLE_STUDENT
-                )
-                cursor = sqLiteDatabase.rawQuery(SELECT_QUERY, null)
+            val SELECT_QUERY = String.format(
+            "SELECT %s, %s, %s, %s, %s FROM %s",
+            COLUMN_STUDENT_ID,
+            COLUMN_STUDENT_NAME,
+            COLUMN_STUDENT_REGISTRATION,
+            COLUMN_STUDENT_EMAIL,
+            COLUMN_STUDENT_PHONE,
+            TABLE_STUDENT
+            )
+            cursor = sqLiteDatabase.rawQuery(SELECT_QUERY, null)
              */
 
             if (cursor?.moveToFirst() == true) {
@@ -107,7 +104,27 @@ class StudentModelImpl(private val context: Context) : StudentModel {
         TODO("Not yet implemented")
     }
 
-    override fun deleteStudent(id: Long, callback: DataFetchCallback<Long>) {
-        TODO("Not yet implemented")
+    override fun deleteStudent(id: Long, callback: DataFetchCallback<Int>) {
+        val dbHelper = DbHelper.getInstance(context)
+        val sqLiteDatabase = dbHelper.writableDatabase
+
+        try {
+            val deleteRowCount = sqLiteDatabase.delete(
+                TABLE_STUDENT,
+                "$COLUMN_STUDENT_ID = ? ",
+                arrayOf(id.toString())
+            )
+
+            if (deleteRowCount > 0) {
+                callback.onSuccess(deleteRowCount)
+            } else {
+                callback.onError(Throwable("No data is deleted"))
+            }
+        } catch (e: Exception) {
+            callback.onError(e)
+            Logger.e(e.localizedMessage)
+        } finally {
+            sqLiteDatabase.close()
+        }
     }
 }

@@ -1,9 +1,5 @@
 <resources>
     <string name="app_name">16_SQLite_Database</string>
-    <string name="title_food_details_page">Food Details</string>
-    <string name="price_label">Price</string>
-    <string name="price_format">%d TK</string>
-    <string name="title_food_list">Food List</string>
 
     <string name="title_activity_create_subject">CreateSubjectActivity</string>
     <string name="registration_no">Registration No</string>
@@ -18,5 +14,8 @@
     <string name="all_delete">All Delete</string>
     <string name="edit_button_description">Edit Single student information</string>
     <string name="title_create_student">Create New Student</string>
+    <string name="student_delete_alert">Are you sure to delete this record?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>

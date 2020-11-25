@@ -1,10 +1,12 @@
 package com.hellohasan.sqlite.ui.student_list.view
 
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.hellohasan.sqlite.R
 import com.hellohasan.sqlite.core.BaseActivity
 import com.hellohasan.sqlite.data.db.StudentDataSetChangeListener
@@ -64,6 +66,15 @@ class StudentListActivity : BaseActivity(), StudentDataSetChangeListener {
             showToast(it)
         })
 
+        viewModel.studentDeletionSuccessLiveData.observe(this, {
+            viewModel.getStudentList()
+            showToast("$it item is deleted")
+        })
+
+        viewModel.studentDeletionFailedLiveData.observe(this, {
+            showToast(it)
+        })
+
         btn_add_student.setOnClickListener {
             showStudentCreationDialog()
         }
@@ -98,6 +109,16 @@ class StudentListActivity : BaseActivity(), StudentDataSetChangeListener {
     }
 
     private fun showStudentDeleteDialog(studentId: Long) {
-        showToast(studentId.toString())
+        var dialog: AlertDialog? = null
+
+        dialog = MaterialAlertDialogBuilder(this)
+            .setMessage(getString(R.string.student_delete_alert))
+            .setPositiveButton(getString(R.string.yes)) { _, _ ->
+                viewModel.deleteStudentById(studentId)
+            }
+            .setNegativeButton(getString(R.string.no)) { _, _ ->
+                dialog?.dismiss()
+            }
+            .show()
     }
 }
