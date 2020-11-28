@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">17_Firebase_Push_Analytics</string>
+    <string name="subscription_button_text">Subscribe Global Topic</string>
+    <string name="title_notification_details_activity">Notification Details</string>
+</resources>

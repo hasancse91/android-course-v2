@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "17_Firebase_Push_Analytics"
