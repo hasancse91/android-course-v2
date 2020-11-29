@@ -1,7 +1,7 @@
 package com.hellohasan.android_firebase_notification.notification
 
 // global topic to receive app wide push notifications
-val TOPIC_GLOBAL = "global"
+val TOPIC_GLOBAL = "global" // news, politics, sport
 
 // id to handle the notification in the notification tray
 const val NOTIFICATION_ID = 100

@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.toolbar.*
 
 class MainActivity : BaseActivity() {
 
-    private lateinit var firebaseAnalytics: FirebaseAnalytics
     private val appAnalytics = AppAnalyticsImpl()
 
     override fun setLayoutId(): Int {
@@ -33,8 +32,6 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        firebaseAnalytics = Firebase.analytics
 
         btn_topic_subscription.setOnClickListener {
             subscribeGlobalTopic()
@@ -57,6 +54,6 @@ class MainActivity : BaseActivity() {
         val bundle = Bundle()
         bundle.putString("activity", "MainActivity")
         bundle.putLong("timestamp", System.currentTimeMillis())
-        firebaseAnalytics.logEvent("button_clicked", bundle)
+        appAnalytics.logEvent("button_clicked", bundle)
     }
 }
