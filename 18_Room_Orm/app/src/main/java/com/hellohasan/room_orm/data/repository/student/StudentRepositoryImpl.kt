@@ -11,7 +11,7 @@ class StudentRepositoryImpl (context: Context): StudentRepository {
     private val db = DatabaseBuilder.getInstance(context)
     private val studentDao = db.studentDao()
 
-    override suspend fun insertStudent(student: Student, callback: DataFetchCallback<Long>) {
+    override suspend fun createStudent(student: Student, callback: DataFetchCallback<Long>) {
         try {
             callback.onSuccess(studentDao.insert(student))
         } catch (e: Exception) {

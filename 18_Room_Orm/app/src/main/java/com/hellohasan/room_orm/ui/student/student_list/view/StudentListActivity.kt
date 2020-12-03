@@ -1,5 +1,6 @@
-package com.hellohasan.room_orm.ui.student_list.view
+package com.hellohasan.room_orm.ui.student.student_list.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
@@ -12,11 +13,12 @@ import com.hellohasan.room_orm.data.local.StudentDataSetChangeListener
 import com.hellohasan.room_orm.data.repository.student.Student
 import com.hellohasan.room_orm.data.repository.student.StudentRepositoryImpl
 import com.hellohasan.room_orm.databinding.ActivityStudentListBinding
-import com.hellohasan.room_orm.ui.student_creation.view.StudentCreateDialogFragment
-import com.hellohasan.room_orm.ui.student_list.viewmodel.StudentListViewModel
-import com.hellohasan.room_orm.ui.student_list.viewmodel.StudentListViewModelFactory
+import com.hellohasan.room_orm.ui.student.student_creation.view.StudentCreateDialogFragment
+import com.hellohasan.room_orm.ui.student.student_list.viewmodel.StudentListViewModel
+import com.hellohasan.room_orm.ui.student.student_list.viewmodel.StudentListViewModelFactory
+import com.hellohasan.room_orm.ui.subject.subject_list.SubjectListActivity
 import com.hellohasan.room_orm.utils.CREATE_STUDENT
-import com.orhanobut.logger.Logger
+import com.hellohasan.room_orm.utils.STUDENT_REGISTRATION
 
 class StudentListActivity : BaseActivity(), StudentDataSetChangeListener {
 
@@ -30,6 +32,10 @@ class StudentListActivity : BaseActivity(), StudentDataSetChangeListener {
     private val studentList by lazy { mutableListOf<Student>()  }
     private val studentListAdapter by lazy {
         StudentListAdapter(studentList, object : StudentListAdapter.StudentListClickListener{
+            override fun onItemClicked(registrationNumber: Long) {
+                showSubjectListActivity(registrationNumber)
+            }
+
             override fun onEditButtonClicked(student: Student) {
                 showStudentEditDialog(student)
             }
@@ -110,5 +116,13 @@ class StudentListActivity : BaseActivity(), StudentDataSetChangeListener {
                 dialog?.dismiss()
             }
             .show()
+    }
+
+    private fun showSubjectListActivity(registrationNumber: Long) {
+        val bundle = Bundle()
+        bundle.putLong(STUDENT_REGISTRATION, registrationNumber)
+        val intent = Intent(this, SubjectListActivity::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)
     }
 }

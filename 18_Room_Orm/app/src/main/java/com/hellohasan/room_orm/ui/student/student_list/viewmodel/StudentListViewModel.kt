@@ -1,4 +1,4 @@
-package com.hellohasan.room_orm.ui.student_list.viewmodel
+package com.hellohasan.room_orm.ui.student.student_list.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -14,7 +14,8 @@
         android:theme="@style/Theme.09_Android_MVP_Architecture"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name="com.hellohasan.room_orm.ui.student_list.view.StudentListActivity">
+        <activity android:name="com.hellohasan.room_orm.ui.subject.subject_list.SubjectListActivity"></activity>
+        <activity android:name="com.hellohasan.room_orm.ui.student.student_list.view.StudentListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

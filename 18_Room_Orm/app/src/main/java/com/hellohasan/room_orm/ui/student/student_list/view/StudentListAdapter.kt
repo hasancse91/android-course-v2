@@ -1,4 +1,4 @@
-package com.hellohasan.room_orm.ui.student_list.view
+package com.hellohasan.room_orm.ui.student.student_list.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -33,7 +33,7 @@ class StudentListAdapter(
         }
 
         holder.itemView.setOnClickListener {
-            // nothing to do. just added this listener for item click ripple effect
+            clickListener.onItemClicked(student.registrationNumber)
         }
     }
 
@@ -48,6 +48,7 @@ class StudentListAdapter(
     }
 
     interface StudentListClickListener {
+        fun onItemClicked(registrationNumber: Long)
         fun onEditButtonClicked(student: Student)
         fun onDeleteButtonClicked(student: Student)
     }

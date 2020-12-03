@@ -1,4 +1,4 @@
-package com.hellohasan.room_orm.ui.student_list.view
+package com.hellohasan.room_orm.ui.student.student_list.view
 
 import androidx.recyclerview.widget.RecyclerView
 import com.hellohasan.room_orm.databinding.ItemStudentBinding

@@ -1,4 +1,4 @@
-package com.hellohasan.room_orm.ui.student_creation.view
+package com.hellohasan.room_orm.ui.student.student_creation.view
 
 import android.content.Context
 import android.os.Bundle
@@ -13,8 +13,8 @@ import com.hellohasan.room_orm.data.local.StudentDataSetChangeListener
 import com.hellohasan.room_orm.data.repository.student.Student
 import com.hellohasan.room_orm.data.repository.student.StudentRepositoryImpl
 import com.hellohasan.room_orm.databinding.FragmentStudentCreateDialogBinding
-import com.hellohasan.room_orm.ui.student_creation.viewmodel.StudentCreateViewModel
-import com.hellohasan.room_orm.ui.student_creation.viewmodel.StudentCreateViewModelFactory
+import com.hellohasan.room_orm.ui.student.student_creation.viewmodel.StudentCreateViewModel
+import com.hellohasan.room_orm.ui.student.student_creation.viewmodel.StudentCreateViewModelFactory
 
 class StudentCreateDialogFragment : DialogFragment() {
 

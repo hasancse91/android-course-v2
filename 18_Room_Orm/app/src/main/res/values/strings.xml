@@ -19,5 +19,8 @@
     <string name="no">No</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="subject_code">Subject Code</string>
+    <string name="subject_credit">Subject Credit</string>
+    <string name="add_subject_fab_content_description">Add Subject of a Student</string>
 
 </resources>

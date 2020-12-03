@@ -1,4 +1,4 @@
-package com.hellohasan.room_orm.ui.student_creation.viewmodel
+package com.hellohasan.room_orm.ui.student.student_creation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,7 +16,7 @@ class StudentCreateViewModel(private val repository: StudentRepository): ViewMod
     fun createStudent(student: Student) {
 
         viewModelScope.launch {
-            repository.insertStudent(student, object : DataFetchCallback<Long> {
+            repository.createStudent(student, object : DataFetchCallback<Long> {
                 override fun onSuccess(data: Long) {
                     studentCreationSuccessLiveData.postValue(Unit)
                 }

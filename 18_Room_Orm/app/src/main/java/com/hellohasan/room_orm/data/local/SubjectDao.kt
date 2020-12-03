@@ -1,9 +1,6 @@
 package com.hellohasan.room_orm.data.local
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.hellohasan.room_orm.data.repository.subject.Subject
 
 @Dao
@@ -13,10 +10,13 @@ interface SubjectDao {
     suspend fun insert(subject: Subject): Long
 
     @Query("SELECT * FROM subject")
-    suspend fun getAll(): List<Subject>
+    suspend fun getAll(): MutableList<Subject>
 
     @Query("SELECT * FROM subject WHERE id = :id")
     suspend fun getById(id: Long): Subject
+
+    @Update
+    suspend fun update(subject: Subject): Int
 
     @Delete
     suspend fun delete(subject: Subject): Int

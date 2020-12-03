@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.student.student_list.view.StudentListActivity">
+    tools:context=".ui.subject.subject_list.SubjectListActivity">
 
     <include
         android:id="@+id/toolbar_layout"
@@ -16,16 +16,15 @@
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_layout"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_student"/>
+        tools:listitem="@layout/item_subject"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_add_student"
+        android:id="@+id/btn_add_subject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_baseline_person_add_alt_1_24"
-        android:contentDescription="@string/add_subject_fab_content_description" />
+        android:src="@drawable/ic_baseline_library_add_24"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

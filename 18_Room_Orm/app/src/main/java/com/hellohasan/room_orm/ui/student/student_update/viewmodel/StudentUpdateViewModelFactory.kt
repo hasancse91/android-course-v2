@@ -1,4 +1,4 @@
-package com.hellohasan.room_orm.ui.student_update.viewmodel
+package com.hellohasan.room_orm.ui.student.student_update.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
