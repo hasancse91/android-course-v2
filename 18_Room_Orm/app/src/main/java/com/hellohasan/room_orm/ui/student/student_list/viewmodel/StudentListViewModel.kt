@@ -32,7 +32,7 @@ class StudentListViewModel(private val repository: StudentRepository) : ViewMode
 
     }
 
-    fun deleteStudentById(student: Student) {
+    fun deleteStudent(student: Student) {
 
         viewModelScope.launch {
             repository.deleteStudent(student, object : DataFetchCallback<Int> {

@@ -10,7 +10,6 @@ import com.orhanobut.logger.Logger
 
 abstract class BaseActivity: AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Logger.addLogAdapter(AndroidLogAdapter())

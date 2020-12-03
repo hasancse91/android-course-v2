@@ -110,7 +110,7 @@ class StudentListActivity : BaseActivity(), StudentDataSetChangeListener {
         dialog = MaterialAlertDialogBuilder(this)
             .setMessage(getString(R.string.student_delete_alert))
             .setPositiveButton(getString(R.string.yes)) { _, _ ->
-                viewModel.deleteStudentById(studentId)
+                viewModel.deleteStudent(studentId)
             }
             .setNegativeButton(getString(R.string.no)) { _, _ ->
                 dialog?.dismiss()
