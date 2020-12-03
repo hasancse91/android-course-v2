@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">18_Room_Coroutines</string>
+    <string name="app_name">18_Room_Coroutines_ViewBinding</string>
 
     <string name="title_activity_create_subject">CreateSubjectActivity</string>
     <string name="registration_no">Registration No</string>
