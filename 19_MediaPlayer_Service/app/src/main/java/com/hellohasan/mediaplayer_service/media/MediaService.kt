@@ -1,12 +1,13 @@
 package com.hellohasan.mediaplayer_service.media
 
-import android.app.Service
+import android.app.*
 import android.content.Intent
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.IBinder
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.hellohasan.mediaplayer_service.*
-import com.hellohasan.mediaplayer_service.R
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 
@@ -19,14 +20,18 @@ class MediaService: Service(), MediaPlayer.OnPreparedListener, MediaPlayer.OnCom
         return null
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Logger.addLogAdapter(AndroidLogAdapter())
+
+        startForeground(ONGOING_NOTIFICATION_ID, NotificationBuilder.build(applicationContext))
 
         when(intent?.action) {
             ACTION_PLAY -> {
 
                 if (mediaPlayer != null && mediaPlayer?.isPlaying == true) {
-                    Toast.makeText(applicationContext, "Already playing!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Already playing!", Toast.LENGTH_SHORT)
+                        .show()
                     return START_NOT_STICKY
                 }
 
@@ -44,6 +49,7 @@ class MediaService: Service(), MediaPlayer.OnPreparedListener, MediaPlayer.OnCom
                     mediaPlayer?.currentPosition?.let {
                         currentPosition = it
                     }
+                    stopForeground(false)
                 }
             }
             ACTION_RESUME -> {
@@ -51,7 +57,11 @@ class MediaService: Service(), MediaPlayer.OnPreparedListener, MediaPlayer.OnCom
                     mediaPlayer?.seekTo(currentPosition)
                     mediaPlayer?.start()
                 } else {
-                    Toast.makeText(applicationContext, "Nothing to resume. Play the audio", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "Nothing to resume. Play the audio",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
