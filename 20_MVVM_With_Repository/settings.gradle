@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "20_MVVM_With_Repository"
