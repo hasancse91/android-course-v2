@@ -3,13 +3,14 @@ package com.hellohasan.mvvm_dagger.ui.student.student_creation
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hellohasan.mvvm_dagger.core.BaseViewModel
 import com.hellohasan.mvvm_dagger.core.DataFetchCallback
 import com.hellohasan.mvvm_dagger.data.repository.student.Student
 import com.hellohasan.mvvm_dagger.data.repository.student.StudentRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class StudentCreateViewModel @Inject constructor(private val repository: StudentRepository): ViewModel() {
+class StudentCreateViewModel @Inject constructor(private val repository: StudentRepository): BaseViewModel() {
 
     val studentCreationSuccessLiveData = MutableLiveData<Unit>()
     val studentCreationFailedLiveData = MutableLiveData<String>()
