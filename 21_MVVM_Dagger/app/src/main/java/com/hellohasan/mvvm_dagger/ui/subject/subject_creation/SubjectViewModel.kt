@@ -1,4 +1,4 @@
-package com.hellohasan.mvvm_dagger.ui.subject
+package com.hellohasan.mvvm_dagger.ui.subject.subject_creation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

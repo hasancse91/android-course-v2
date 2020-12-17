@@ -1,4 +1,4 @@
-package com.hellohasan.mvvm_dagger.ui.student.student_list.view
+package com.hellohasan.mvvm_dagger.ui.student.student_list
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +11,7 @@ import com.hellohasan.mvvm_dagger.core.BaseActivity
 import com.hellohasan.mvvm_dagger.data.local.db.student.StudentDataSetChangeListener
 import com.hellohasan.mvvm_dagger.data.repository.student.Student
 import com.hellohasan.mvvm_dagger.databinding.ActivityStudentListBinding
-import com.hellohasan.mvvm_dagger.ui.student.student_creation.view.StudentCreateDialogFragment
-import com.hellohasan.mvvm_dagger.ui.student.student_list.viewmodel.StudentListViewModel
+import com.hellohasan.mvvm_dagger.ui.student.student_creation.StudentCreateDialogFragment
 import com.hellohasan.mvvm_dagger.ui.subject.subject_list.SubjectListActivity
 import com.hellohasan.mvvm_dagger.utils.CREATE_STUDENT
 import com.hellohasan.mvvm_dagger.utils.STUDENT_REGISTRATION
@@ -23,7 +22,7 @@ class StudentListActivity : BaseActivity<StudentListViewModel>(), StudentDataSet
 
     private val studentList by lazy { mutableListOf<Student>()  }
     private val studentListAdapter by lazy {
-        StudentListAdapter(studentList, object : StudentListAdapter.StudentListClickListener{
+        StudentListAdapter(studentList, object : StudentListAdapter.StudentListClickListener {
             override fun onItemClicked(registrationNumber: Long) {
                 showSubjectListActivity(registrationNumber)
             }

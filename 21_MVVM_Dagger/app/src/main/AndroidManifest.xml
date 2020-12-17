@@ -17,7 +17,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
 
-        <activity android:name="com.hellohasan.mvvm_dagger.ui.student.student_list.view.StudentListActivity">
+        <activity android:name="com.hellohasan.mvvm_dagger.ui.student.student_list.StudentListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.hellohasan.mvvm_dagger.ui.student.student_update.viewmodel
+package com.hellohasan.mvvm_dagger.ui.student.student_update
 
 import androidx.lifecycle.ViewModel
 import com.hellohasan.mvvm_dagger.data.repository.student.Student

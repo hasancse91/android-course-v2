@@ -1,4 +1,4 @@
-package com.hellohasan.mvvm_dagger.ui.student.student_list.viewmodel
+package com.hellohasan.mvvm_dagger.ui.student.student_list
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

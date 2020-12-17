@@ -1,4 +1,4 @@
-package com.hellohasan.mvvm_dagger.ui.student.student_list.view
+package com.hellohasan.mvvm_dagger.ui.student.student_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

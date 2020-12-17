@@ -1,4 +1,4 @@
-package com.hellohasan.mvvm_dagger.ui.student.student_update.view
+package com.hellohasan.mvvm_dagger.ui.student.student_update
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

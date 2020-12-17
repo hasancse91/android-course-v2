@@ -2,9 +2,9 @@ package com.hellohasan.mvvm_dagger.di.modules
 
 import androidx.lifecycle.ViewModel
 import com.hellohasan.mvvm_dagger.di.annotation.ViewModelKey
-import com.hellohasan.mvvm_dagger.ui.student.student_creation.viewmodel.StudentCreateViewModel
-import com.hellohasan.mvvm_dagger.ui.student.student_list.viewmodel.StudentListViewModel
-import com.hellohasan.mvvm_dagger.ui.student.student_update.viewmodel.StudentUpdateViewModel
+import com.hellohasan.mvvm_dagger.ui.student.student_creation.StudentCreateViewModel
+import com.hellohasan.mvvm_dagger.ui.student.student_list.StudentListViewModel
+import com.hellohasan.mvvm_dagger.ui.student.student_update.StudentUpdateViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

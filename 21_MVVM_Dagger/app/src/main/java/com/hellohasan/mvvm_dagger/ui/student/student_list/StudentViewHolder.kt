@@ -1,4 +1,4 @@
-package com.hellohasan.mvvm_dagger.ui.student.student_list.view
+package com.hellohasan.mvvm_dagger.ui.student.student_list
 
 import androidx.recyclerview.widget.RecyclerView
 import com.hellohasan.mvvm_dagger.databinding.ItemStudentBinding
