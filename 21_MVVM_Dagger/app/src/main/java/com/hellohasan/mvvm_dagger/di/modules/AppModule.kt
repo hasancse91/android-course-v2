@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import com.hellohasan.mvvm_dagger.core.AppViewModelFactory
 import com.hellohasan.mvvm_dagger.data.local.db.AppDatabase
-import com.hellohasan.mvvm_dagger.data.local.db.DatabaseBuilder
 import com.hellohasan.mvvm_dagger.data.local.preference.AppPreference
 import com.hellohasan.mvvm_dagger.data.local.preference.AppPreferenceImpl
 import com.hellohasan.mvvm_dagger.di.annotation.ApplicationContext
@@ -33,7 +32,6 @@ abstract class AppModule {
 
         @Provides
         @Singleton
-        @JvmStatic
         fun provideLocalDb(@ApplicationContext context: Context) : AppDatabase {
             return Room.databaseBuilder(
                 context,

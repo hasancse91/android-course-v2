@@ -1,15 +1,12 @@
 package com.hellohasan.mvvm_dagger.data.local.db.subject
 
-import android.content.Context
 import com.hellohasan.mvvm_dagger.core.DataFetchCallback
-import com.hellohasan.mvvm_dagger.data.local.db.DatabaseBuilder
+import com.hellohasan.mvvm_dagger.data.local.db.AppDatabase
 import com.hellohasan.mvvm_dagger.data.repository.subject.Subject
-import com.hellohasan.mvvm_dagger.di.annotation.ApplicationContext
 import javax.inject.Inject
 
-class SubjectLocalDataSourceImpl @Inject constructor(@ApplicationContext context: Context) : SubjectLocalDataSource {
+class SubjectLocalDataSourceImpl @Inject constructor(db: AppDatabase) : SubjectLocalDataSource {
 
-    private val db = DatabaseBuilder.getInstance(context)
     private val subjectDao = db.subjectDao()
 
     override suspend fun createSubject(subject: Subject, callback: DataFetchCallback<Long>) {
