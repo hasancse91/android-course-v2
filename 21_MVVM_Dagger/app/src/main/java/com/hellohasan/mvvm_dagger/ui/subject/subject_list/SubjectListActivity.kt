@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.hellohasan.mvvm_dagger.core.BaseActivity
 import com.hellohasan.mvvm_dagger.data.repository.subject.Subject
 import com.hellohasan.mvvm_dagger.databinding.ActivitySubjectListBinding
-import com.hellohasan.mvvm_dagger.ui.subject.subject_creation.SubjectViewModel
+import com.hellohasan.mvvm_dagger.ui.subject.SubjectViewModel
 import com.hellohasan.mvvm_dagger.utils.STUDENT_REGISTRATION
 
 class SubjectListActivity : BaseActivity<SubjectViewModel>() {

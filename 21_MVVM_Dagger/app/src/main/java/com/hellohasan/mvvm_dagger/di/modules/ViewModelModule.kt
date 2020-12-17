@@ -5,7 +5,7 @@ import com.hellohasan.mvvm_dagger.di.annotation.ViewModelKey
 import com.hellohasan.mvvm_dagger.ui.student.student_creation.StudentCreateViewModel
 import com.hellohasan.mvvm_dagger.ui.student.student_list.StudentListViewModel
 import com.hellohasan.mvvm_dagger.ui.student.student_update.StudentUpdateViewModel
-import com.hellohasan.mvvm_dagger.ui.subject.subject_creation.SubjectViewModel
+import com.hellohasan.mvvm_dagger.ui.subject.SubjectViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
