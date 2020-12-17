@@ -6,8 +6,9 @@ import com.hellohasan.mvvm_dagger.data.repository.client_ip.IpInfo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class IpInfoRemoteSourceImpl(): IpInfoRemoteSource {
+class IpInfoRemoteSourceImpl @Inject constructor(): IpInfoRemoteSource {
 
     override fun getIpInfo(callback: DataFetchCallback<IpInfo>) {
 

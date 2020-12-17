@@ -1,25 +1,16 @@
 package com.hellohasan.mvvm_dagger.ui.subject.subject_list
 
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
 import com.hellohasan.mvvm_dagger.core.BaseActivity
 import com.hellohasan.mvvm_dagger.data.repository.subject.Subject
-import com.hellohasan.mvvm_dagger.data.repository.subject.SubjectRepositoryImpl
 import com.hellohasan.mvvm_dagger.databinding.ActivitySubjectListBinding
 import com.hellohasan.mvvm_dagger.ui.subject.SubjectViewModel
-import com.hellohasan.mvvm_dagger.ui.subject.SubjectViewModelFactory
 import com.hellohasan.mvvm_dagger.utils.STUDENT_REGISTRATION
 
-class SubjectListActivity : BaseActivity() {
+class SubjectListActivity : BaseActivity<SubjectViewModel>() {
 
     private lateinit var binding : ActivitySubjectListBinding
     private var studentRegistrationNumber: Long = -1
-
-    private val repository by lazy { SubjectRepositoryImpl(applicationContext) }
-    private val viewModel by lazy {
-        val factory = SubjectViewModelFactory(repository)
-        ViewModelProvider(this, factory).get(SubjectViewModel::class.java)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

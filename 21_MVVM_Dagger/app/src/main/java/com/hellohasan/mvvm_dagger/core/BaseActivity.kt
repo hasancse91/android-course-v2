@@ -3,7 +3,6 @@ package com.hellohasan.mvvm_dagger.core
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.orhanobut.logger.AndroidLogAdapter

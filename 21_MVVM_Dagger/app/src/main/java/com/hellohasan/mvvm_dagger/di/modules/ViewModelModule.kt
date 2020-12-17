@@ -1,8 +1,6 @@
 package com.hellohasan.mvvm_dagger.di.modules
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.hellohasan.mvvm_dagger.core.AppViewModelFactory
 import com.hellohasan.mvvm_dagger.di.annotation.ViewModelKey
 import com.hellohasan.mvvm_dagger.ui.student.student_creation.viewmodel.StudentCreateViewModel
 import com.hellohasan.mvvm_dagger.ui.student.student_list.viewmodel.StudentListViewModel

@@ -3,12 +3,14 @@ package com.hellohasan.mvvm_dagger.ui.subject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hellohasan.mvvm_dagger.core.BaseViewModel
 import com.hellohasan.mvvm_dagger.core.DataFetchCallback
 import com.hellohasan.mvvm_dagger.data.repository.subject.Subject
 import com.hellohasan.mvvm_dagger.data.repository.subject.SubjectRepository
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SubjectViewModel(private val repository: SubjectRepository) : ViewModel() {
+class SubjectViewModel @Inject constructor(private val repository: SubjectRepository) : BaseViewModel() {
 
     val subjectCreationSuccessLiveData = MutableLiveData<Unit>()
     val subjectCreationFailedLiveData = MutableLiveData<String>()

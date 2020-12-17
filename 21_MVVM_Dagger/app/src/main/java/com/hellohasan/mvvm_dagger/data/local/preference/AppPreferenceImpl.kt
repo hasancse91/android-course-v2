@@ -1,9 +1,10 @@
 package com.hellohasan.mvvm_dagger.data.local.preference
 
 import android.content.Context
+import com.hellohasan.mvvm_dagger.di.annotation.ApplicationContext
 import javax.inject.Inject
 
-class AppPreferenceImpl @Inject constructor(context: Context): AppPreference {
+class AppPreferenceImpl @Inject constructor(@ApplicationContext context: Context): AppPreference {
 
     private val sharedPreferences = context.getSharedPreferences("my_app_pref", Context.MODE_PRIVATE)
     private val editor = sharedPreferences.edit()
@@ -26,7 +27,7 @@ class AppPreferenceImpl @Inject constructor(context: Context): AppPreference {
         editor.apply()
     }
 
-    override fun getBoolean(key: String): Boolean? {
+    override fun getBoolean(key: String): Boolean {
         return sharedPreferences.getBoolean(key, false)
     }
 

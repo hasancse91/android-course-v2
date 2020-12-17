@@ -8,14 +8,15 @@ import com.hellohasan.mvvm_dagger.data.local.preference.AppPreference.Companion.
 import com.hellohasan.mvvm_dagger.data.local.preference.AppPreferenceImpl
 import com.hellohasan.mvvm_dagger.data.remote.ip_info.IpInfoRemoteSource
 import com.hellohasan.mvvm_dagger.data.remote.ip_info.IpInfoRemoteSourceImpl
+import com.hellohasan.mvvm_dagger.di.annotation.ApplicationContext
 import com.hellohasan.mvvm_dagger.utils.isInternetAvailable
 import javax.inject.Inject
 
 class IpInfoRepositoryImpl @Inject constructor(
-    private val context: Context,
+    @ApplicationContext private val context: Context,
     private val ipInfoRemoteSource: IpInfoRemoteSource,
     private val appPreference: AppPreference
-    ) : IpInfoRepository {
+) : IpInfoRepository {
 
     override fun getClientInfo(callback: DataFetchCallback<IpInfo>) {
 
