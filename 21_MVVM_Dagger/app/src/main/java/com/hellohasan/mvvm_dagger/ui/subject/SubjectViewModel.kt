@@ -14,7 +14,7 @@ class SubjectViewModel @Inject constructor(private val repository: SubjectReposi
     val subjectCreationSuccessLiveData = MutableLiveData<Unit>()
     val subjectCreationFailedLiveData = MutableLiveData<String>()
 
-    fun createSubject(subject: Subject, studentRegistrationNumber: Long) {
+    fun createSubject(subject: Subject) {
 
         viewModelScope.launch {
 

@@ -40,8 +40,7 @@ class SubjectListActivity : BaseActivity<SubjectViewModel>() {
                 name = "Programming Language C",
                 code = 101,
                 credit = 3.0F
-            ),
-            studentRegistrationNumber
+            )
         )
     }
 }
