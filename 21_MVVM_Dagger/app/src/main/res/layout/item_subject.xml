@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/subjectNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Data Structures"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/editImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/crossImageView"
+            app:srcCompat="@drawable/ic_baseline_edit_24"
+            android:alpha="0.5"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/edit_button_description"/>
+
+        <ImageView
+            android:id="@+id/crossImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_baseline_delete_24"
+            android:alpha="0.5"
+            android:contentDescription="@string/cross_image_content_description" />
+
+        <TextView
+            android:id="@+id/subjectCodeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/subjectNameTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/subject_code"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/subjectCodeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="101"
+            app:layout_constraintTop_toBottomOf="@id/subjectNameTextView"
+            app:layout_constraintStart_toEndOf="@id/subjectCodeTitle"
+            android:layout_marginStart="4dp" />
+
+        <TextView
+            android:id="@+id/subjectCreditTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/subjectCodeTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/subject_credit"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/subjectCreditTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/subjectCodeTitle"
+            app:layout_constraintStart_toEndOf="@id/subjectCreditTitle"
+            tools:text="3.00"
+            android:layout_marginStart="4dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
