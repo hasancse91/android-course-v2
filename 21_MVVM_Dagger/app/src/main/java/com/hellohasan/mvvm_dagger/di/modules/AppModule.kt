@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import com.hellohasan.mvvm_dagger.core.AppViewModelFactory
 import com.hellohasan.mvvm_dagger.data.local.db.AppDatabase
+import com.hellohasan.mvvm_dagger.data.local.db.student.StudentLocalDataSource
+import com.hellohasan.mvvm_dagger.data.local.db.student.StudentLocalDataSourceImpl
 import com.hellohasan.mvvm_dagger.data.local.preference.AppPreference
 import com.hellohasan.mvvm_dagger.data.local.preference.AppPreferenceImpl
 import com.hellohasan.mvvm_dagger.di.annotation.ApplicationContext
@@ -20,13 +22,13 @@ abstract class AppModule {
 
     @Binds
     @ApplicationContext
-    abstract fun provideContext(application: Application): Context
+    abstract fun bindContext(application: Application): Context
 
     @Binds
-    abstract fun provideAppPreference(appPreferenceImpl: AppPreferenceImpl): AppPreference
+    abstract fun bindAppPreference(appPreferenceImpl: AppPreferenceImpl): AppPreference
 
     @Binds
-    abstract fun provideViewModelFactory(factory: AppViewModelFactory): ViewModelProvider.Factory
+    abstract fun bindViewModelFactory(factory: AppViewModelFactory): ViewModelProvider.Factory
 
     companion object {
 
