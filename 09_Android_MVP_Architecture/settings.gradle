@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name = "09_Android_MVP_Architecture"
