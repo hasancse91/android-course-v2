@@ -8,11 +8,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class IpInfoRemoteSourceImpl @Inject constructor(): IpInfoRemoteSource {
+class IpInfoRemoteSourceImpl @Inject constructor(private val ipInfoRetrofitInterface: IpInfoRetrofitInterface): IpInfoRemoteSource {
 
     override fun getIpInfo(callback: DataFetchCallback<IpInfo>) {
 
-        val ipInfoRetrofitInterface = RetrofitClient.getClient().create(IpInfoRetrofitInterface::class.java)
         val call = ipInfoRetrofitInterface.getClientIp()
 
         call.enqueue(object : Callback<IpInfo> {
